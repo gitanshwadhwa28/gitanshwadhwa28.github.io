@@ -1,0 +1,59 @@
+baseURL = 'https://gitanshwadhwa28.github.io/'
+languageCode = 'en-us'
+title = "Home"
+theme = "hugo-PaperMod"
+copyright = "© 2021 [Gitansh Wadhwa](/)"
+
+
+[params.profileMode]
+enabled = true
+title = "Gitansh Wadhwa"
+subtitle = "Software Developer | Engineering Junior"
+imageTitle = "profile-image"
+imageWidth = 180
+imageHeight = 220
+
+  [[params.profileMode.buttons]]
+  name = "Blog"
+  url = "/blog"
+
+  [[params.profileMode.buttons]]
+  name = "Resume"
+  url = "resume.pdf"
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/gitanshwadhwa28"
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/gitanshwadhwa/"
+
+[[params.socialIcons]]
+name = "email"
+url = "mailto: gitanshwadhwa0028@gmail.com"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON" ]
+
+[menu]
+[[menu.main]]
+  name = 'About'
+  url = '/about'
+  weight = -110
+[[menu.main]]
+  name = 'Projects'
+  url = '/projects'
+  weight = -100
+[[menu.main]]
+  name = 'Tags'
+  url = 'tags/'
+  weight = -100
+[[menu.main]]
+  name = 'Search'
+  url = '/search'
+  weight = -100
+
+
+
+

@@ -1,0 +1,13 @@
+---
+title: "Automated Low-Risk Investment System"
+date: 2021-09-07T14:11:38+05:30
+draft: false
+---
+
+![image alt text](/images/alris.jpg)
+
+The idea is to study the overall spending earning analysis using Open Banking API and to automate Savings and Low-Risk Investment opportunities to counter factors like inflation, taxes and loan intrests.
+
+Using Machine Learning and Data Analysis, the application will monitor multiple stocks and suggest a Low-Risk Investment based on the spending earning analysis of the user. This will help people personalize their spending, saving and investment goals.
+
+Additional Features - Personal finance management, Subscription management, Personalised Investment opportunities other than Stocks.
