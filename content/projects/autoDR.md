@@ -1,8 +1,9 @@
 ---
 title: "Automated detection of diabetic retinopathy"
-date: 2021-09-07T14:11:38+05:30
+date: 2021-03-01
 draft: false
 tags: ['Deep Learning', 'Python']
+ShowBreadCrumbs: true
 ---
 
 ![image alt text](/images/dr.jpg)

@@ -15,7 +15,7 @@ imageHeight = 220
 
   [[params.profileMode.buttons]]
   name = "Blog"
-  url = "/blog"
+  url = "/blogs"
 
   [[params.profileMode.buttons]]
   name = "Resume"

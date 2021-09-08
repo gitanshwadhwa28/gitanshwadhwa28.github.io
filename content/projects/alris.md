@@ -1,7 +1,9 @@
 ---
-title: "Automated Low-Risk Investment System"
-date: 2021-09-07T14:11:38+05:30
+title: "Automated Low-Risk Investment System [ongoing]"
+date: 2021-09-01
 draft: false
+tags: ['Node.js', 'MnogoDB', 'Javascript', 'Express.js', 'REST API']
+ShowBreadCrumbs: true
 ---
 
 ![image alt text](/images/alris.jpg)
