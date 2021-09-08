@@ -1,0 +1,249 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Deploy a Smart Contract on Ethereum network | Home</title>
+<meta name=keywords content="Ethereum,Blockchain,javascript">
+<meta name=description content="Published on GeeksforGeeks: Link
+ Smart contracts are blocks of code that reside on the blockchain. It is like an Ethereum account but there is a critical difference between an external account and a smart contract. Unlike a smart contract, an external account can connect to multiple Ethereum networks (Rinkebey, Kovan, main, etc.) whereas a smart contract is only specific to one individual network (the network it is deployed on).">
+<meta name=author content="Gitansh Wadhwa">
+<link rel=canonical href=https://gitanshwadhwa28.github.io/blogs/blog/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.9f1d947375927e9847272b1f4e9be81336f539e513bf04d52cade31f81cad1af.css integrity="sha256-nx2Uc3WSfphHJysfTpvoEzb1OeUTvwTVLK3jH4HK0a8=" rel="preload stylesheet" as=style>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://gitanshwadhwa28.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://gitanshwadhwa28.github.io/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://gitanshwadhwa28.github.io/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://gitanshwadhwa28.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://gitanshwadhwa28.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<meta property="og:title" content="Deploy a Smart Contract on Ethereum network">
+<meta property="og:description" content="Published on GeeksforGeeks: Link
+ Smart contracts are blocks of code that reside on the blockchain. It is like an Ethereum account but there is a critical difference between an external account and a smart contract. Unlike a smart contract, an external account can connect to multiple Ethereum networks (Rinkebey, Kovan, main, etc.) whereas a smart contract is only specific to one individual network (the network it is deployed on).">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gitanshwadhwa28.github.io/blogs/blog/">
+<meta property="og:image" content="https://gitanshwadhwa28.github.io/images/eth.jpg"><meta property="article:section" content="blogs">
+<meta property="article:published_time" content="2021-07-15T00:00:00+00:00">
+<meta property="article:modified_time" content="2021-07-15T00:00:00+00:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://gitanshwadhwa28.github.io/images/eth.jpg">
+<meta name=twitter:title content="Deploy a Smart Contract on Ethereum network">
+<meta name=twitter:description content="Published on GeeksforGeeks: Link
+ Smart contracts are blocks of code that reside on the blockchain. It is like an Ethereum account but there is a critical difference between an external account and a smart contract. Unlike a smart contract, an external account can connect to multiple Ethereum networks (Rinkebey, Kovan, main, etc.) whereas a smart contract is only specific to one individual network (the network it is deployed on).">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Blogs","item":"https://gitanshwadhwa28.github.io/blogs/"},{"@type":"ListItem","position":2,"name":"Deploy a Smart Contract on Ethereum network","item":"https://gitanshwadhwa28.github.io/blogs/blog/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Deploy a Smart Contract on Ethereum network","name":"Deploy a Smart Contract on Ethereum network","description":"Published on GeeksforGeeks: Link\n Smart contracts are blocks of code that reside on the blockchain. It is like an Ethereum account but there is a critical difference between an external account and a smart contract. Unlike a smart contract, an external account can connect to multiple Ethereum networks (Rinkebey, Kovan, main, etc.) whereas a smart contract is only specific to one individual network (the network it is deployed on).","keywords":["Ethereum","Blockchain","javascript"],"articleBody":" Published on GeeksforGeeks: Link\n Smart contracts are blocks of code that reside on the blockchain. It is like an Ethereum account but there is a critical difference between an external account and a smart contract. Unlike a smart contract, an external account can connect to multiple Ethereum networks (Rinkebey, Kovan, main, etc.) whereas a smart contract is only specific to one individual network (the network it is deployed on). When a smart contract is deployed, it creates an instance (contract account) on the network. One can create multiple instances of a smart contract on the network or multiple networks. Deployment of a smart contract is done by sending a transaction to the network with bytecode.\nDeploying To A Local Network An emulator can be used to deploy a smart contract on a local network eg. Ganache-cli. It takes care of everything and the user doesn’t have to worry about the security and the gas amount required for transactions since everything is happening on a local test network. All one has to do is pass the ganache provider as an argument to the web3 instance(web3 facilitates the connection between the blockchain network and the js application).\nDeploying To Actual Ethereum Network Before deploying a smart contract to an actual Ethereum network make sure the account has some ether in it. Deploying a contract is like sending a transaction and it needs some gas amount to process. Unlike deploying on a local network, transactions will take some time to complete (anywhere between 15 seconds to 5 minutes). Web3 is used to interact with the network the same way it is done in local deployment except customize the provider that will be passed into the web3 instance. Instead of creating our own node that connects to the Ethereum network, one can use Infura. It is a public API that gives access to the Infura node that is already hosted on the Ethereum network. Simply sign-up for Infura and get an endpoint that will be used in the code to deploy the smart contract.\nexample.sol- Below is the sample solidity code used for testing. All it does is set a public variable as the address of the sender.\n// Solidity program to implement // the above approach pragma solidity ^0.8.4; // Creating a contract named Example contract Example { // Public variable of type address address public manager; // Constructor function to set manager // as address of sender constructor() { manager = msg.sender; } } Step 1- Install the required dependencies by running the following commands\n npm i solc@0.8.4 truffle-hdwallet-provider@1.0.17 web3@1.3.5\n Make sure to install the same versions for the following scripts to run successfully.\nStep 2- Sign up for Infura and create a project on a particular Ethereum network to get access to the endpoint. The endpoint will be required to deploy the smart contract on the infura node that is already hosted on the Ethereum network. To create a project on infura-\n Click on create a new project. Give it a name. Select the network to deploy the smart contract on.  Step 3– Get access to Bytecode and ABI (Compile the smart contract). Solidity compiler gives a huge piece of code as output, one can print the output to console if required. Only the relevant part (relevant for deployment) i.e., bytecode and interface are extracted from the output in the following script.\n// Javascript file to implement // the above approach const path = require(\"path\"); const fs = require(\"fs\"); const solc = require(\"solc\"); // remember to change line 8 to your // own file path. Make sure you have your // own file name or contract name in line // 13, 28 and 30 as well. const examplePath = path.resolve(__dirname, \"contracts\", \"example.sol\"); const source = fs.readFileSync(examplePath, \"utf-8\"); var input = { language: 'Solidity', sources: { 'example.sol': { content: source } }, settings: { outputSelection: { '*': { '*': ['*'] } } } }; var output = JSON.parse(solc.compile(JSON.stringify(input))); var interface = output.contracts[\"example.sol\"][\"example\"].abi; var bytecode = output.contracts['example.sol'][\"example\"].evm.bytecode.object; module.exports = { interface, bytecode }; Step 4– Once have access to bytecode and interface, all that is required is to create a provider with own mnemonic phrase and infura endpoint using the truffle-hdwallet-provider that was installed earlier. Create a web3 instance and pass the provider as an argument. Finally, use the deploy method with bytecode as an argument to deploy the smart contract.\nconst HDWalletProvider = require(\"truffle-hdwallet-provider\"); // Web3 constructor function. const Web3 = require(\"web3\"); // Get bytecode and ABI after compiling // solidity code. const { interface, bytecode } = require(\"file-path\"); const provider = new HDWalletProvider( \"mnemonic phrase\", // Remember to change this to your own phrase! \"-\" // Remember to change this to your own endpoint! ); // Create an instance of Web3 and pass the // provider as an argument. const web3 = new Web3(provider); const deploy = async () = { // Get access to all accounts linked to mnemonic // Make sure you have metamask installed. const accounts = await web3.eth.getAccounts(); console.log(\"Attempting to deploy from account\", accounts[0]); // Pass initial gas and account to use in the send function const result = await new web3.eth.Contract(interface) .deploy({ data: bytecode }) .send({ gas: \"1000000\", from: accounts[0]}); console.log(\"Contract deployed to\", result.options.address); }; deploy(); // The purpose of creating a function and // calling it at the end - // so that we can use async await instead // of using promises Output:\n Contract is deployed to 0x8716443863c87ee791C1ee15289e61503Ad4443c\n Now the contract is deployed on the network, its functionality can be tested using remix IDE or one can create an interface to interact with the smart contract on the network.\n","wordCount":"935","inLanguage":"en","image":"https://gitanshwadhwa28.github.io/images/eth.jpg","datePublished":"2021-07-15T00:00:00Z","dateModified":"2021-07-15T00:00:00Z","author":{"@type":"Person","name":"Gitansh Wadhwa"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gitanshwadhwa28.github.io/blogs/blog/"},"publisher":{"@type":"Organization","name":"Home","logo":{"@type":"ImageObject","url":"https://gitanshwadhwa28.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://gitanshwadhwa28.github.io/ accesskey=h title="Home (Alt + H)">Home</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://gitanshwadhwa28.github.io/about title=About>
+<span>About</span>
+</a>
+</li>
+<li>
+<a href=https://gitanshwadhwa28.github.io/projects title=Projects>
+<span>Projects</span>
+</a>
+</li>
+<li>
+<a href=https://gitanshwadhwa28.github.io/search title="Search (Alt + /)" accesskey=/>
+<span>Search</span>
+</a>
+</li>
+<li>
+<a href=https://gitanshwadhwa28.github.io/tags/ title=Tags>
+<span>Tags</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://gitanshwadhwa28.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://gitanshwadhwa28.github.io/blogs/>Blogs</a></div>
+<h1 class=post-title>
+Deploy a Smart Contract on Ethereum network
+</h1>
+<div class=post-meta>July 15, 2021&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Gitansh Wadhwa&nbsp;|&nbsp;<a href=https://github.com/gitanshwadhwa28/gitanshwadhwa28.github.io/tree/main/content/blogs/blog.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+</div>
+</header>
+<figure class=entry-cover><img loading=lazy src=https://gitanshwadhwa28.github.io/images/eth.jpg alt=Ethereum>
+</figure><div class=toc>
+<details>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#deploying-to-a-local-network aria-label="Deploying To A Local Network">Deploying To A Local Network</a></li>
+<li>
+<a href=#deploying-to-actual-ethereum-network aria-label="Deploying To Actual Ethereum Network">Deploying To Actual Ethereum Network</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><blockquote>
+<p>Published on GeeksforGeeks: <a href=https://www.geeksforgeeks.org/how-to-simply-deploy-a-smart-contract-on-ethereum/>Link</a></p>
+</blockquote>
+<p>Smart contracts are blocks of code that reside on the blockchain. It is like an Ethereum account but there is a critical difference between an external account and a smart contract. Unlike a smart contract, an external account can connect to multiple Ethereum networks (Rinkebey, Kovan, main, etc.) whereas a smart contract is only specific to one individual network (the network it is deployed on). When a smart contract is deployed, it creates an instance (contract account) on the network. One can create multiple instances of a smart contract on the network or multiple networks. Deployment of a smart contract is done by sending a transaction to the network with bytecode.</p>
+<h3 id=deploying-to-a-local-network>Deploying To A Local Network<a hidden class=anchor aria-hidden=true href=#deploying-to-a-local-network>#</a></h3>
+<p>An emulator can be used to deploy a smart contract on a local network eg. Ganache-cli. It takes care of everything and the user doesn’t have to worry about the security and the gas amount required for transactions since everything is happening on a local test network. All one has to do is pass the ganache provider as an argument to the web3 instance(web3 facilitates the connection between the blockchain network and the js application).</p>
+<h3 id=deploying-to-actual-ethereum-network>Deploying To Actual Ethereum Network<a hidden class=anchor aria-hidden=true href=#deploying-to-actual-ethereum-network>#</a></h3>
+<p>Before deploying a smart contract to an actual Ethereum network make sure the account has some ether in it. Deploying a contract is like sending a transaction and it needs some gas amount to process. Unlike deploying on a local network, transactions will take some time to complete (anywhere between 15 seconds to 5 minutes). Web3 is used to interact with the network the same way it is done in local deployment except customize the provider that will be passed into the web3 instance. Instead of creating our own node that connects to the Ethereum network, one can use Infura. It is a public API that gives access to the Infura node that is already hosted on the Ethereum network. Simply sign-up for Infura and get an endpoint that will be used in the code to deploy the smart contract.</p>
+<p>example.sol- Below is the sample solidity code used for testing. All it does is set a public variable as the address of the sender.</p>
+<pre tabindex=0><code>// Solidity program to implement
+// the above approach
+pragma solidity ^0.8.4;
+ 
+// Creating a contract named Example
+contract Example
+{
+    // Public variable of type address
+    address public manager;
+ 
+    // Constructor function to set manager
+    // as address of sender
+     constructor()
+     {
+        manager = msg.sender;
+     }
+}
+</code></pre><p><strong>Step 1</strong>- Install the required dependencies by running the following commands</p>
+<blockquote>
+<p>npm i <a href=mailto:solc@0.8.4>solc@0.8.4</a> <a href=mailto:truffle-hdwallet-provider@1.0.17>truffle-hdwallet-provider@1.0.17</a> <a href=mailto:web3@1.3.5>web3@1.3.5</a></p>
+</blockquote>
+<p>Make sure to install the same versions for the following scripts to run successfully.</p>
+<p><strong>Step 2</strong>- Sign up for Infura and create a project on a particular Ethereum network to get access to the endpoint. The endpoint will be required to deploy the smart contract on the infura node that is already hosted on the Ethereum network. To create a project on infura-</p>
+<ul>
+<li>Click on create a new project.</li>
+<li>Give it a name.</li>
+<li>Select the network to deploy the smart contract on.</li>
+</ul>
+<p><strong>Step 3</strong>– Get access to Bytecode and ABI (Compile the smart contract). Solidity compiler gives a huge piece of code as output, one can print the output to console if required. Only the relevant part (relevant for deployment) i.e., bytecode and interface are extracted from the output in the following script.</p>
+<pre tabindex=0><code>// Javascript file to implement
+// the above approach
+const path = require(&quot;path&quot;);
+const fs = require(&quot;fs&quot;);
+const solc = require(&quot;solc&quot;);
+ 
+// remember to change line 8 to your
+// own file path. Make sure you have your
+// own file name or contract name in line
+// 13, 28 and 30 as well.
+ 
+const examplePath = path.resolve(__dirname, &quot;contracts&quot;, &quot;example.sol&quot;);
+const source = fs.readFileSync(examplePath, &quot;utf-8&quot;);
+ 
+var input = {
+    language: 'Solidity',
+    sources: {
+        'example.sol': {
+            content: source
+        }
+    },
+    settings: {
+        outputSelection: {
+            '*': {
+                '*': ['*']
+            }
+        }
+    }
+};
+ 
+var output = JSON.parse(solc.compile(JSON.stringify(input)));
+ 
+var interface = output.contracts[&quot;example.sol&quot;][&quot;example&quot;].abi;
+ 
+var bytecode = output.contracts['example.sol'][&quot;example&quot;].evm.bytecode.object;
+ 
+module.exports = { interface, bytecode };
+</code></pre><p><strong>Step 4</strong>– Once have access to bytecode and interface, all that is required is to create a provider with own mnemonic phrase and infura endpoint using the truffle-hdwallet-provider that was installed earlier. Create a web3 instance and pass the provider as an argument. Finally, use the deploy method with bytecode as an argument to deploy the smart contract.</p>
+<pre tabindex=0><code>const HDWalletProvider = require(&quot;truffle-hdwallet-provider&quot;);
+ 
+// Web3 constructor function.
+const Web3 = require(&quot;web3&quot;);
+ 
+// Get bytecode and ABI after compiling
+// solidity code.
+const { interface, bytecode } = require(&quot;file-path&quot;);
+ 
+const provider = new HDWalletProvider(
+  &quot;mnemonic phrase&quot;,
+  // Remember to change this to your own phrase!
+  &quot;-&quot;
+  // Remember to change this to your own endpoint!
+);
+ 
+// Create an instance of Web3 and pass the
+// provider as an argument.
+const web3 = new Web3(provider);
+ 
+const deploy = async () =&gt; {
+  // Get access to all accounts linked to mnemonic
+  // Make sure you have metamask installed.
+  const accounts = await web3.eth.getAccounts();
+ 
+  console.log(&quot;Attempting to deploy from account&quot;, accounts[0]);
+ 
+  // Pass initial gas and account to use in the send function
+  const result = await new web3.eth.Contract(interface)
+    .deploy({ data: bytecode })
+    .send({ gas: &quot;1000000&quot;, from: accounts[0]});
+ 
+  console.log(&quot;Contract deployed to&quot;, result.options.address);
+};
+ 
+deploy();
+ 
+// The purpose of creating a function and
+// calling it at the end -
+// so that we can use async await instead
+// of using promises
+</code></pre><p>Output:</p>
+<blockquote>
+<p>Contract is deployed to 0x8716443863c87ee791C1ee15289e61503Ad4443c</p>
+</blockquote>
+<p>Now the contract is deployed on the network, its functionality can be tested using remix IDE or one can create an interface to interact with the smart contract on the network.</p>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://gitanshwadhwa28.github.io/tags/ethereum/>Ethereum</a></li>
+<li><a href=https://gitanshwadhwa28.github.io/tags/blockchain/>Blockchain</a></li>
+<li><a href=https://gitanshwadhwa28.github.io/tags/javascript/>javascript</a></li>
+</ul>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>© 2021 <a href=/>Gitansh Wadhwa</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>
