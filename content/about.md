@@ -3,7 +3,7 @@ title: "About Me 👨🏻‍💻"
 draft: false
 ---
 
->i'm a junior at **Cluster Innovation Centre, University of Delhi**, currently pursuing a Bachelor's degree in Information Technology and Mathematical Innovations.
+>I'm a junior at **Cluster Innovation Centre, University of Delhi**, currently pursuing a Bachelor's degree in Information Technology and Mathematical Innovations.
 
 ### You can also find me on: 
 * [Leetcode](https://leetcode.com/gitanshwadhwa/)
