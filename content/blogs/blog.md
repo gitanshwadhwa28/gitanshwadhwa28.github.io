@@ -23,11 +23,11 @@ editPost:
 Smart contracts are blocks of code that reside on the blockchain. It is like an Ethereum account but there is a critical difference between an external account and a smart contract. Unlike a smart contract, an external account can connect to multiple Ethereum networks (Rinkebey, Kovan, main, etc.) whereas a smart contract is only specific to one individual network (the network it is deployed on). When a smart contract is deployed, it creates an instance (contract account) on the network. One can create multiple instances of a smart contract on the network or multiple networks. Deployment of a smart contract is done by sending a transaction to the network with bytecode.
 
 
-### Deploying To A Local Network
+### Deploying to a Local Network
 
 An emulator can be used to deploy a smart contract on a local network eg. Ganache-cli. It takes care of everything and the user doesn’t have to worry about the security and the gas amount required for transactions since everything is happening on a local test network. All one has to do is pass the ganache provider as an argument to the web3 instance(web3 facilitates the connection between the blockchain network and the js application). 
 
-### Deploying To Actual Ethereum Network
+### Deploying to an actual Ethereum Network
 
 Before deploying a smart contract to an actual Ethereum network make sure the account has some ether in it. Deploying a contract is like sending a transaction and it needs some gas amount to process. Unlike deploying on a local network, transactions will take some time to complete (anywhere between 15 seconds to 5 minutes). Web3 is used to interact with the network the same way it is done in local deployment except customize the provider that will be passed into the web3 instance. Instead of creating our own node that connects to the Ethereum network, one can use Infura. It is a public API that gives access to the Infura node that is already hosted on the Ethereum network. Simply sign-up for Infura and get an endpoint that will be used in the code to deploy the smart contract.
 
