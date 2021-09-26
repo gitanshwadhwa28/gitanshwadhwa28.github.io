@@ -2,7 +2,7 @@
 title: "Automated Low-Risk Investment System [ongoing]"
 date: 2021-09-01
 draft: false
-tags: ['Node.js', 'MnogoDB', 'Javascript', 'Express.js', 'REST API']
+tags: ['Node.js', 'MongoDB', 'Javascript', 'Express.js', 'REST API']
 ShowBreadCrumbs: true
 ---
 
