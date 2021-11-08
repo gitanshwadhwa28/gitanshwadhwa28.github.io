@@ -12,7 +12,7 @@ draft: false
 
 ### Experience
 
-- Full Stack developer at **MockBoard**.
+- Senior Developer at **MockBoard**.
     - Designed and created the frontend for the website.
     - Handled Server scaling and Load Balancing on AWS.
     - Created a system for bulk editing and downloading of certificates on Node.js.
