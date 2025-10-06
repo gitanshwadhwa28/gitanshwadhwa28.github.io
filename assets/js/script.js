@@ -1,6 +1,7 @@
 'use strict';
 
-
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
 
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
@@ -49,9 +50,34 @@ for (let i = 0; i < testimonialsItem.length; i++) {
 
 }
 
+
 // add click event to modal close button
 modalCloseBtn.addEventListener("click", testimonialsModalFunc);
 overlay.addEventListener("click", testimonialsModalFunc);
+
+// resume modal variables
+const resumeModalContainer = document.querySelector("[data-resume-modal-container]");
+const resumeModalCloseBtn = document.querySelector("[data-resume-close-btn]");
+const resumeOverlay = document.querySelector("[data-resume-overlay]");
+
+console.log("Resume modal elements found:");
+console.log("resumeModalContainer:", resumeModalContainer);
+console.log("resumeModalCloseBtn:", resumeModalCloseBtn);
+console.log("resumeOverlay:", resumeOverlay);
+
+// resume modal toggle function
+const resumeModalFunc = function () {
+  console.log("resumeModalFunc called");
+  console.log("resumeModalContainer:", resumeModalContainer);
+  console.log("resumeOverlay:", resumeOverlay);
+  resumeModalContainer.classList.toggle("active");
+  resumeOverlay.classList.toggle("active");
+}
+
+// add click event to resume modal close button
+resumeModalCloseBtn.addEventListener("click", resumeModalFunc);
+resumeOverlay.addEventListener("click", resumeModalFunc);
+
 
 
 
@@ -142,18 +168,35 @@ const pages = document.querySelectorAll("[data-page]");
 
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
+  navigationLinks[i].addEventListener("click", function (e) {
+    
+    // Handle Resume special case - open popup instead of navigating
+    if (this.innerHTML.trim() === "Resume") {
+      e.preventDefault();
+      console.log("Resume clicked - opening popup");
+      resumeModalFunc();
+      return;
+    }
 
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
+    // Remove active class from all navigation links first
+    for (let j = 0; j < navigationLinks.length; j++) {
+      navigationLinks[j].classList.remove("active");
+    }
+    
+    // Add active class to clicked link
+    this.classList.add("active");
+
+    // Show/hide pages based on clicked link
+    for (let k = 0; k < pages.length; k++) {
+      if (this.innerHTML.toLowerCase() === pages[k].dataset.page) {
+        pages[k].classList.add("active");
         window.scrollTo(0, 0);
       } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
+        pages[k].classList.remove("active");
       }
     }
 
   });
 }
+
+}); // End of DOMContentLoaded
