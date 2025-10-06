@@ -614,6 +614,7 @@ main {
   filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
   width: 40px;
   height: 40px;
+  object-fit: contain;
 }
 
 .service-content-box { text-align: center; }
