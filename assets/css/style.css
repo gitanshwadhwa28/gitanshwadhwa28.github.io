@@ -612,8 +612,10 @@ main {
 .service-icon-box img { 
   margin: auto;
   filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
-  width: 40px;
-  height: 40px;
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .service-content-box { text-align: center; }
@@ -1726,6 +1728,18 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .clients-item {
     min-width: 42%;
+  }
+
+  .service-icon-box {
+    width: 70px;
+    height: 70px;
+    padding: 15px;
+    flex-shrink: 0;
+  }
+
+  .service-icon-box img {
+    width: 40px !important;
+    height: 40px !important;
   }
 }
 
