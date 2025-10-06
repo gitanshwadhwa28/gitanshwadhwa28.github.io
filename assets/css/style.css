@@ -675,10 +675,10 @@ main {
   box-shadow: var(--shadow-3);
 }
 
-.highlight-card:hover .highlight-icon {
+/* .highlight-card:hover .highlight-icon {
   transform: scale(1.1);
   box-shadow: 0 6px 20px hsla(25, 85%, 55%, 0.3);
-}
+} */
 
 .amazon-card::before {
   background: var(--bg-gradient-jet);
