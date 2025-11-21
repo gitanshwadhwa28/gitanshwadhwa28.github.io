@@ -170,11 +170,22 @@ const pages = document.querySelectorAll("[data-page]");
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function (e) {
     
-    // Handle Resume special case - open popup instead of navigating
+    // Handle Resume special case
     if (this.innerHTML.trim() === "Resume") {
       e.preventDefault();
-      console.log("Resume clicked - opening popup");
-      resumeModalFunc();
+      
+      // Check if mobile device (screen width <= 768px)
+      const isMobile = window.innerWidth <= 768;
+      
+      if (isMobile) {
+        // On mobile, open PDF in new tab
+        console.log("Mobile device - opening PDF in new tab");
+        window.open("./Gitansh Wadhwa CV.pdf", "_blank");
+      } else {
+        // On desktop, show popup modal
+        console.log("Desktop device - opening popup");
+        resumeModalFunc();
+      }
       return;
     }
 
